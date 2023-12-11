@@ -7,18 +7,12 @@ def solution() -> int:
 
         col_empty = [True] * len(lines[0])
         row_empty = [True] * len(lines)
-        i = 0
-        j = 0
-        while i < len(lines) and j < len(lines[i]):
-            if lines[i][j] == "#":
-                col_empty[j] = False
-                row_empty[i] = False
 
-            if j == len(lines[i]) - 1:
-                i += 1
-                j = 0
-            else:
-                j += 1
+        for i in range(len(lines)):
+            for j in range(len(lines[i])):
+                if lines[i][j] == "#":
+                    col_empty[j] = False
+                    row_empty[i] = False
 
         for col_index in range(len(col_empty) - 1, -1, -1):
             if col_empty[col_index]:
