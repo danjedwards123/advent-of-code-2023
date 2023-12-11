@@ -5,6 +5,7 @@ def solution() -> int:
     with open("input.txt", "r") as f:
         lines = [list(x.strip()) for x in f.readlines()]
 
+        galaxy_count = 0
         col_empty = [True] * len(lines[0])
         row_empty = [True] * len(lines)
 
@@ -13,13 +14,8 @@ def solution() -> int:
                 if lines[i][j] == "#":
                     col_empty[j] = False
                     row_empty[i] = False
-
-        galaxy_count = 0
-        for row in range(len(lines)):
-            for col in range(len(lines[row])):
-                if lines[row][col] == "#":
                     galaxy_count += 1
-                    galaxy_locations[galaxy_count] = (row, col)
+                    galaxy_locations[galaxy_count] = (i, j)
 
     for i in galaxy_locations:
         for j in galaxy_locations:
